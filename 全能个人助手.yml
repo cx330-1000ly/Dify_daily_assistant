@@ -1,0 +1,3017 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: advanced-chat
+  name: 全能个人助手
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: antv/visualization:0.2.0@798a255e7bf02e93b8a5717be235b833482be58daab1c64c79c954281da14b9c
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: junjiem/mcp_see_agent:0.2.4@82caf96890992e9dec2c43c3fac82bfce8bd18a41de7c2b6948151b2d7f7b7a2
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.19@5b68617c637b62d31e7f33a9f5677b76e88f81868fb04a728e208588564b72ea
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: sawyer-shi/seedream_aigc:0.0.7@6a8fb2cb254d35a3ba93c5d31776071fc0e9832bababb1ddb6a191d7d6fe5a81
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        knowledge_file_size_limit: 15
+        single_chunk_attachment_limit: 10
+        skill_file_size_limit: 50
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: '你好！我是日常问题咨询专家，很高兴为您服务！ 😊
+
+
+      我可以帮助您解答各种日常生活中的问题，比如：
+
+
+      健康养生相关疑问
+
+
+      家庭管理技巧
+
+
+      人际关系建议
+
+
+      生活实用小窍门
+
+
+      以及其他您在生活中遇到的困惑
+
+
+      请告诉我您今天有什么想要咨询的问题吗？我会用简单易懂的方式为您提供实用、可靠的解答。'
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: question-classifier
+      id: 1792836187644-source-1792839647893-target
+      selected: false
+      source: '1792836187644'
+      sourceHandle: source
+      target: '1792839647893'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1792839647893-1-1792841108966-target
+      selected: false
+      source: '1792839647893'
+      sourceHandle: '1'
+      target: '1792841108966'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1792841108966-source-1792841244392-target
+      selected: false
+      source: '1792841108966'
+      sourceHandle: source
+      target: '1792841244392'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1792839647893-2-1792844173677-target
+      selected: false
+      source: '1792839647893'
+      sourceHandle: '2'
+      target: '1792844173677'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1792844173677-source-1792844388950-target
+      selected: false
+      source: '1792844173677'
+      sourceHandle: source
+      target: '1792844388950'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: tool
+      id: 1792839647893-1792840747031-1792900080788-target
+      selected: false
+      source: '1792839647893'
+      sourceHandle: '1792840747031'
+      target: '1792900080788'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 1792900080788-source-1792847080793-target
+      selected: false
+      source: '1792900080788'
+      sourceHandle: source
+      target: '1792847080793'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: tool
+      id: 1792839647893-1792840772352-1792909153794-target
+      selected: false
+      source: '1792839647893'
+      sourceHandle: '1792840772352'
+      target: '1792909153794'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 1792909153794-source-1792895762089-target
+      selected: false
+      source: '1792909153794'
+      sourceHandle: source
+      target: '1792895762089'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: agent
+        targetType: answer
+      id: 1792913054274-source-1792913289466-target
+      selected: false
+      source: '1792913054274'
+      sourceHandle: source
+      target: '1792913289466'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: agent
+      id: 1792839647893-1792840797540-1792913054274-target
+      selected: false
+      source: '1792839647893'
+      sourceHandle: '1792840797540'
+      target: '1792913054274'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: agent
+      id: 1792839647893-1792840864785-1792913962819-target
+      selected: false
+      source: '1792839647893'
+      sourceHandle: '1792840864785'
+      target: '1792913962819'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: agent
+      id: 1792839647893-1792840884277-1792913974416-target
+      selected: false
+      source: '1792839647893'
+      sourceHandle: '1792840884277'
+      target: '1792913974416'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: agent
+        targetType: answer
+      id: 1792913962819-source-1792913981696-target
+      selected: false
+      source: '1792913962819'
+      sourceHandle: source
+      target: '1792913981696'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: agent
+        targetType: answer
+      id: 1792913974416-source-1792913987777-target
+      selected: false
+      source: '1792913974416'
+      sourceHandle: source
+      target: '1792913987777'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: code
+      id: 1792839647893-1792840932116-1792919184746-target
+      selected: false
+      source: '1792839647893'
+      sourceHandle: '1792840932116'
+      target: '1792919184746'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1792919184746-source-1792919209807-target
+      selected: false
+      source: '1792919184746'
+      sourceHandle: source
+      target: '1792919209807'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1792919209807-source-1792919213638-target
+      selected: false
+      source: '1792919209807'
+      sourceHandle: source
+      target: '1792919213638'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: code
+      id: 1792839647893-1792840926625-1792920050979-target
+      source: '1792839647893'
+      sourceHandle: '1792840926625'
+      target: '1792920050979'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1792920082386-source-1792920085606-target
+      source: '1792920082386'
+      sourceHandle: source
+      target: '1792920085606'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1792920050979-source-1792920278374-target
+      source: '1792920050979'
+      sourceHandle: source
+      target: '1792920278374'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1792920278374-source-1792920082386-target
+      source: '1792920278374'
+      sourceHandle: source
+      target: '1792920082386'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables: []
+      height: 73
+      id: '1792836187644'
+      position:
+        x: 15.196075874000257
+        y: 228.271466733522
+      positionAbsolute:
+        x: 15.196075874000257
+        y: 228.271466733522
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        classes:
+        - id: '1'
+          label: CLASS 1
+          name: 一般性日常生活问题
+        - id: '2'
+          label: CLASS 2
+          name: 优化文案
+        - id: '1792840747031'
+          label: CLASS 3
+          name: 生成图片
+        - id: '1792840772352'
+          label: CLASS 4
+          name: 生成视频
+        - id: '1792840797540'
+          label: CLASS 5
+          name: 城市的天气、地图经纬度、IP地址、骑行路径规划、驾车路径规划、公交路径规划、距离测量、周边搜获
+        - id: '1792840864785'
+          label: CLASS 6
+          name: '查询全部菜谱、今天可以吃什么好吃的、智能推荐一周菜谱、查询特定菜的菜谱
+
+
+            '
+        - id: '1792840884277'
+          label: CLASS 7
+          name: 今天有什么最新新闻、行业动态追踪
+        - id: '1792840926625'
+          label: CLASS 8
+          name: 数据分析
+        - id: '1792840932116'
+          label: CLASS 9
+          name: 查询数据
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        query_variable_selector:
+        - sys
+        - query
+        selected: false
+        title: 问题分类器
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 472
+      id: '1792839647893'
+      position:
+        x: 234.74713789370492
+        y: 668.1658508828262
+      positionAbsolute:
+        x: 234.74713789370492
+        y: 668.1658508828262
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - sys
+          - query
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: ea24bf3f-2238-40f7-8811-3d31ed5d7fa1
+          role: system
+          text: "# Role: 日常问题咨询专家\n\n## Profile\n- language: 中文\n- description: 专门回答用户日常生活中的一般性问题，提供实用、准确、易懂的建议和解答\n\
+            - background: 拥有丰富的生活经验和广泛的知识储备，擅长将复杂问题简单化\n- personality: 亲切友好、耐心细致、务实可靠\n\
+            - expertise: 日常生活、健康养生、家庭管理、人际关系、实用技巧\n\n\n## Skills\n\n1. 问题分析能力\n  \
+            \ - 快速理解: 迅速把握用户问题的核心要点\n   - 分类识别: 准确判断问题所属的生活领域\n   - 需求挖掘: 深入理解用户潜在需求\n\
+            \   - 优先级排序: 合理评估问题的重要性和紧急性\n\n2. 解答提供能力\n   - 知识整合: 综合运用多领域知识提供解答\n \
+            \  - 方案制定: 提供具体可行的解决方案\n   - 步骤分解: 将复杂问题拆解为简单步骤\n   - 替代方案: 准备多种备选方案供用户选择\n\
+            \n3. 沟通表达能力\n   - 语言通俗: 使用简单易懂的日常用语\n   - 逻辑清晰: 条理分明地组织回答内容\n   - 举例说明:\
+            \ 通过具体案例帮助理解\n   - 重点突出: 强调关键信息和注意事项\n\n## Rules\n\n1. 回答原则：\n   - 实用性优先:\
+            \ 确保提供的建议具有可操作性\n   - 准确性保证: 基于可靠信息和常识给出回答\n   - 中立客观: 避免个人偏见和主观臆断\n \
+            \  - 适度建议: 根据问题复杂程度提供适当深度的解答\n\n2. 行为准则：\n   - 及时响应: 快速回应用户的问题\n   - 耐心细致:\
+            \ 对重复或简单问题保持耐心\n   - 积极引导: 鼓励用户提供更多背景信息\n   - 持续改进: 根据反馈优化回答质量\n\n\n##\
+            \ Workflows\n\n- 目标: 为用户提供实用、可靠的日常问题解决方案\n- 步骤 1: 仔细阅读并理解用户提出的日常问题\n-\
+            \ 步骤 2: 分析问题类型和用户潜在需求\n- 步骤 3: 基于常识和经验提供具体可行的建议\n- 步骤 4: 用通俗易懂的语言组织回答内容\n\
+            - 步骤 5: 检查回答的实用性和安全性\n\n\n## Initialization\n作为日常问题咨询专家，你必须遵守上述Rules，按照Workflows执行任务。\n\
+            ## 用户问题\n{{query}}\n"
+        - id: ead55169-72b7-43e6-9871-c90fc5a2aec3
+          role: user
+          text: '## 用户问题
+
+            {{{#sys.query#}}}'
+        selected: false
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1792841108966'
+      position:
+        x: 786.0185251175086
+        y: -441.1976952349214
+      positionAbsolute:
+        x: 786.0185251175086
+        y: -441.1976952349214
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: '以下是为您生成的回复：
+
+          {{{#1792841108966.text#}}}}'
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 118
+      id: '1792841244392'
+      position:
+        x: 1157.8372803639024
+        y: -191.31141064992008
+      positionAbsolute:
+        x: 1157.8372803639024
+        y: -191.31141064992008
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - sys
+          - query
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: bdc81b4a-8346-4e88-8471-f758c05a3ab9
+          role: system
+          text: '# 一、 角色人设（Role）
+
+            你是一位专业的文案优化专家，拥有丰富的营销文案写作和优化经验，擅长提升文案的吸引力、转化率和可读性。你的视角是站在目标受众和营销目标的角度，专业度边界限于文案优化领域，不涉及技术实现或产品开发。
+
+
+            # 二、 背景（Background）
+
+            用户提供了一段原始文案，需要你对其进行优化，以提升其整体效果。背景信息包括：文案可能用于营销、品牌推广或信息传达等场景，但具体用途未详细说明。已知条件是用户希望文案更吸引人、清晰或具有说服力，但未提供原始文案内容，因此你需要基于通用优化原则工作。
+
+
+            # 三、 任务目标（Task）
+
+            - 分析并优化文案的结构、语言和风格，使其更符合目标受众的偏好。
+
+            - 提升文案的吸引力、可读性和转化潜力，确保信息传达清晰。
+
+            - 根据常见优化原则（如简洁性、情感共鸣、行动号召等）进行调整，不涉及内容重写，除非必要。
+
+            - 在保持核心信息的前提下，适当扩展和丰富文案内容，提供更全面的优化版本。
+
+
+            # 四、 限制提示（Limit）
+
+            - 避免改变原始文案的核心信息或意图，除非用户明确要求。
+
+            - 不要添加虚构或无关内容，确保优化基于逻辑和最佳实践。
+
+            - 避免使用过于技术性或专业术语，除非目标受众是专业人士。
+
+            - 不涉及对图片、布局或其他非文本元素的优化。
+
+
+            # 五、 输出格式要求（Example）
+
+            输出应为优化后的文案文本，结构清晰，语言流畅，内容详实。例如：
+
+            - 如果原始文案是“我们的产品很好，快来买吧”
+
+            优化后可以是：“在这个充满选择的时代，真正打动人心的从来不是浮夸的宣传，而是经得起时间和用户考验的好产品。我们的产品正是如此。它不仅在设计上注重细节与品质，更在功能上不断打磨与创新，只为给每一位用户带来更好的使用体验。无论是外观的质感，还是性能的稳定，我们始终坚持高标准严要求，力求让每一位选择我们的顾客都能感受到物超所值的惊喜。
+
+            我们深知，购买一款产品，不仅仅是一次简单的消费，更是一种对生活方式的选择。因此，我们从选材、工艺到售后服务的每一个环节，都倾注了满满的诚意与专业，用心守护您的每一次体验。无论您是追求实用、注重品质，还是想要与众不同的个性化，我们的产品都能为您提供理想的解决方案。
+
+            现在，就让我们用行动来证明一切。真正的好产品，不需要过多修饰，它本身就是最好的代言人。立即行动，选择我们，让品质改变生活，从此拥有与众不同的体验！”
+
+            - 输出应直接呈现优化内容，无需额外解释或注释，除非用户要求。请确保优化后的文案内容更加丰富和完整，优化后的文案文本须超过500字。'
+        - id: e1135294-be55-4e7c-93e7-50b36385b41b
+          role: user
+          text: '请输入你的问题：
+
+            {{#sys.query#}}'
+        selected: false
+        title: LLM 2
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1792844173677'
+      position:
+        x: 793.8953263183017
+        y: -297.8604043115628
+      positionAbsolute:
+        x: 793.8953263183017
+        y: -297.8604043115628
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: 以下是为您生成的回复：{{#1792844173677.text#}}
+        selected: false
+        title: 直接回复 2
+        type: answer
+        variables: []
+      height: 118
+      id: '1792844388950'
+      position:
+        x: 1152.0147537434727
+        y: -48.74822002006131
+      positionAbsolute:
+        x: 1152.0147537434727
+        y: -48.74822002006131
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: '以下是符合您要求的图片：
+
+          {{#1792900080788.text#}}
+
+          {{#1792900080788.files#}}'
+        selected: false
+        title: 直接回复 3
+        type: answer
+        variables: []
+      height: 136
+      id: '1792847080793'
+      position:
+        x: 1142.7280343507443
+        y: 87.7910310072636
+      positionAbsolute:
+        x: 1142.7280343507443
+        y: 87.7910310072636
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: '以下是符合您要求的视频：
+
+          {{#1792909153794.text#}}
+
+          {{#1792909153794.files#}}'
+        selected: false
+        title: 直接回复 4
+        type: answer
+        variables: []
+      height: 136
+      id: '1792895762089'
+      position:
+        x: 1144.6325470650524
+        y: 254.70648346797353
+      positionAbsolute:
+        x: 1144.6325470650524
+        y: 254.70648346797353
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        is_team_authorization: false
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Text description of the image you want to generate
+            ja_JP: Text description of the image you want to generate
+            pt_BR: Text description of the image you want to generate
+            zh_Hans: 您想要生成的图像的文本描述
+          input_schema: null
+          label:
+            en_US: Prompt
+            ja_JP: Prompt
+            pt_BR: Prompt
+            zh_Hans: 提示词
+          llm_description: Text description of the image to generate
+          max: null
+          min: null
+          multiple: false
+          name: prompt
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 2048x2048
+          form: form
+          human_description:
+            en_US: Size of the generated image. Options are tagged with the model
+              tier they belong to; mismatched size+model combinations will be rejected
+              at runtime.
+            ja_JP: Size of the generated image. Options are tagged with the model
+              tier they belong to; mismatched size+model combinations will be rejected
+              at runtime.
+            pt_BR: Size of the generated image. Options are tagged with the model
+              tier they belong to; mismatched size+model combinations will be rejected
+              at runtime.
+            zh_Hans: 生成图像的尺寸。下拉项已标注所属模型/档位，模型与尺寸不匹配会在运行时被拦截
+          input_schema: null
+          label:
+            en_US: Image Size
+            ja_JP: Image Size
+            pt_BR: Image Size
+            zh_Hans: 图像尺寸
+          llm_description: Size of the generated image (see option labels for model-specific
+            tiers)
+          max: null
+          min: null
+          multiple: false
+          name: size
+          options:
+          - icon: ''
+            label:
+              en_US: Universal 2K · 1:1 (2048x2048)
+              ja_JP: Universal 2K · 1:1 (2048x2048)
+              pt_BR: Universal 2K · 1:1 (2048x2048)
+              zh_Hans: 通用 2K · 1:1 (2048x2048)
+            value: 2048x2048
+          - icon: ''
+            label:
+              en_US: Universal 2K · 4:3 (2304x1728)
+              ja_JP: Universal 2K · 4:3 (2304x1728)
+              pt_BR: Universal 2K · 4:3 (2304x1728)
+              zh_Hans: 通用 2K · 4:3 (2304x1728)
+            value: 2304x1728
+          - icon: ''
+            label:
+              en_US: Universal 2K · 3:4 (1728x2304)
+              ja_JP: Universal 2K · 3:4 (1728x2304)
+              pt_BR: Universal 2K · 3:4 (1728x2304)
+              zh_Hans: 通用 2K · 3:4 (1728x2304)
+            value: 1728x2304
+          - icon: ''
+            label:
+              en_US: Universal 2K · 16:9 (2848x1600)
+              ja_JP: Universal 2K · 16:9 (2848x1600)
+              pt_BR: Universal 2K · 16:9 (2848x1600)
+              zh_Hans: 通用 2K · 16:9 (2848x1600)
+            value: 2848x1600
+          - icon: ''
+            label:
+              en_US: Universal 2K · 9:16 (1600x2848)
+              ja_JP: Universal 2K · 9:16 (1600x2848)
+              pt_BR: Universal 2K · 9:16 (1600x2848)
+              zh_Hans: 通用 2K · 9:16 (1600x2848)
+            value: 1600x2848
+          - icon: ''
+            label:
+              en_US: Universal 2K · 3:2 (2496x1664)
+              ja_JP: Universal 2K · 3:2 (2496x1664)
+              pt_BR: Universal 2K · 3:2 (2496x1664)
+              zh_Hans: 通用 2K · 3:2 (2496x1664)
+            value: 2496x1664
+          - icon: ''
+            label:
+              en_US: Universal 2K · 2:3 (1664x2496)
+              ja_JP: Universal 2K · 2:3 (1664x2496)
+              pt_BR: Universal 2K · 2:3 (1664x2496)
+              zh_Hans: 通用 2K · 2:3 (1664x2496)
+            value: 1664x2496
+          - icon: ''
+            label:
+              en_US: Universal 2K · 21:9 (3136x1344)
+              ja_JP: Universal 2K · 21:9 (3136x1344)
+              pt_BR: Universal 2K · 21:9 (3136x1344)
+              zh_Hans: 通用 2K · 21:9 (3136x1344)
+            value: 3136x1344
+          - icon: ''
+            label:
+              en_US: Universal 4K · 1:1 (4096x4096)
+              ja_JP: Universal 4K · 1:1 (4096x4096)
+              pt_BR: Universal 4K · 1:1 (4096x4096)
+              zh_Hans: 通用 4K · 1:1 (4096x4096)
+            value: 4096x4096
+          - icon: ''
+            label:
+              en_US: Universal 4K · 4:3 (4704x3520)
+              ja_JP: Universal 4K · 4:3 (4704x3520)
+              pt_BR: Universal 4K · 4:3 (4704x3520)
+              zh_Hans: 通用 4K · 4:3 (4704x3520)
+            value: 4704x3520
+          - icon: ''
+            label:
+              en_US: Universal 4K · 3:4 (3520x4704)
+              ja_JP: Universal 4K · 3:4 (3520x4704)
+              pt_BR: Universal 4K · 3:4 (3520x4704)
+              zh_Hans: 通用 4K · 3:4 (3520x4704)
+            value: 3520x4704
+          - icon: ''
+            label:
+              en_US: Universal 4K · 16:9 (5504x3040)
+              ja_JP: Universal 4K · 16:9 (5504x3040)
+              pt_BR: Universal 4K · 16:9 (5504x3040)
+              zh_Hans: 通用 4K · 16:9 (5504x3040)
+            value: 5504x3040
+          - icon: ''
+            label:
+              en_US: Universal 4K · 9:16 (3040x5504)
+              ja_JP: Universal 4K · 9:16 (3040x5504)
+              pt_BR: Universal 4K · 9:16 (3040x5504)
+              zh_Hans: 通用 4K · 9:16 (3040x5504)
+            value: 3040x5504
+          - icon: ''
+            label:
+              en_US: Universal 4K · 3:2 (4992x3328)
+              ja_JP: Universal 4K · 3:2 (4992x3328)
+              pt_BR: Universal 4K · 3:2 (4992x3328)
+              zh_Hans: 通用 4K · 3:2 (4992x3328)
+            value: 4992x3328
+          - icon: ''
+            label:
+              en_US: Universal 4K · 2:3 (3328x4992)
+              ja_JP: Universal 4K · 2:3 (3328x4992)
+              pt_BR: Universal 4K · 2:3 (3328x4992)
+              zh_Hans: 通用 4K · 2:3 (3328x4992)
+            value: 3328x4992
+          - icon: ''
+            label:
+              en_US: Universal 4K · 21:9 (6240x2656)
+              ja_JP: Universal 4K · 21:9 (6240x2656)
+              pt_BR: Universal 4K · 21:9 (6240x2656)
+              zh_Hans: 通用 4K · 21:9 (6240x2656)
+            value: 6240x2656
+          - icon: ''
+            label:
+              en_US: 5.0 Lite 3K · 1:1 (3072x3072)
+              ja_JP: 5.0 Lite 3K · 1:1 (3072x3072)
+              pt_BR: 5.0 Lite 3K · 1:1 (3072x3072)
+              zh_Hans: 5.0 Lite 3K · 1:1 (3072x3072)
+            value: 3072x3072
+          - icon: ''
+            label:
+              en_US: 5.0 Lite 3K · 4:3 (3456x2592)
+              ja_JP: 5.0 Lite 3K · 4:3 (3456x2592)
+              pt_BR: 5.0 Lite 3K · 4:3 (3456x2592)
+              zh_Hans: 5.0 Lite 3K · 4:3 (3456x2592)
+            value: 3456x2592
+          - icon: ''
+            label:
+              en_US: 5.0 Lite 3K · 3:4 (2592x3456)
+              ja_JP: 5.0 Lite 3K · 3:4 (2592x3456)
+              pt_BR: 5.0 Lite 3K · 3:4 (2592x3456)
+              zh_Hans: 5.0 Lite 3K · 3:4 (2592x3456)
+            value: 2592x3456
+          - icon: ''
+            label:
+              en_US: 5.0 Lite 3K · 16:9 (4096x2304)
+              ja_JP: 5.0 Lite 3K · 16:9 (4096x2304)
+              pt_BR: 5.0 Lite 3K · 16:9 (4096x2304)
+              zh_Hans: 5.0 Lite 3K · 16:9 (4096x2304)
+            value: 4096x2304
+          - icon: ''
+            label:
+              en_US: 5.0 Lite 3K · 9:16 (2304x4096)
+              ja_JP: 5.0 Lite 3K · 9:16 (2304x4096)
+              pt_BR: 5.0 Lite 3K · 9:16 (2304x4096)
+              zh_Hans: 5.0 Lite 3K · 9:16 (2304x4096)
+            value: 2304x4096
+          - icon: ''
+            label:
+              en_US: 5.0 Lite 3K · 3:2 (3744x2496)
+              ja_JP: 5.0 Lite 3K · 3:2 (3744x2496)
+              pt_BR: 5.0 Lite 3K · 3:2 (3744x2496)
+              zh_Hans: 5.0 Lite 3K · 3:2 (3744x2496)
+            value: 3744x2496
+          - icon: ''
+            label:
+              en_US: 5.0 Lite 3K · 2:3 (2496x3744)
+              ja_JP: 5.0 Lite 3K · 2:3 (2496x3744)
+              pt_BR: 5.0 Lite 3K · 2:3 (2496x3744)
+              zh_Hans: 5.0 Lite 3K · 2:3 (2496x3744)
+            value: 2496x3744
+          - icon: ''
+            label:
+              en_US: 5.0 Lite 3K · 21:9 (4704x2016)
+              ja_JP: 5.0 Lite 3K · 21:9 (4704x2016)
+              pt_BR: 5.0 Lite 3K · 21:9 (4704x2016)
+              zh_Hans: 5.0 Lite 3K · 21:9 (4704x2016)
+            value: 4704x2016
+          - icon: ''
+            label:
+              en_US: 5.0 Pro 2K · 4:3 (2368x1776)
+              ja_JP: 5.0 Pro 2K · 4:3 (2368x1776)
+              pt_BR: 5.0 Pro 2K · 4:3 (2368x1776)
+              zh_Hans: 5.0 Pro 2K · 4:3 (2368x1776)
+            value: 2368x1776
+          - icon: ''
+            label:
+              en_US: 5.0 Pro 2K · 3:4 (1776x2368)
+              ja_JP: 5.0 Pro 2K · 3:4 (1776x2368)
+              pt_BR: 5.0 Pro 2K · 3:4 (1776x2368)
+              zh_Hans: 5.0 Pro 2K · 3:4 (1776x2368)
+            value: 1776x2368
+          - icon: ''
+            label:
+              en_US: 5.0 Pro 2K · 16:9 (2816x1584)
+              ja_JP: 5.0 Pro 2K · 16:9 (2816x1584)
+              pt_BR: 5.0 Pro 2K · 16:9 (2816x1584)
+              zh_Hans: 5.0 Pro 2K · 16:9 (2816x1584)
+            value: 2816x1584
+          - icon: ''
+            label:
+              en_US: 5.0 Pro 2K · 9:16 (1584x2816)
+              ja_JP: 5.0 Pro 2K · 9:16 (1584x2816)
+              pt_BR: 5.0 Pro 2K · 9:16 (1584x2816)
+              zh_Hans: 5.0 Pro 2K · 9:16 (1584x2816)
+            value: 1584x2816
+          - icon: ''
+            label:
+              en_US: 5.0 Pro/4.0 1K · 1:1 (1024x1024)
+              ja_JP: 5.0 Pro/4.0 1K · 1:1 (1024x1024)
+              pt_BR: 5.0 Pro/4.0 1K · 1:1 (1024x1024)
+              zh_Hans: 5.0 Pro/4.0 1K · 1:1 (1024x1024)
+            value: 1024x1024
+          - icon: ''
+            label:
+              en_US: 5.0 Pro/4.0 1K · 4:3 (1152x864)
+              ja_JP: 5.0 Pro/4.0 1K · 4:3 (1152x864)
+              pt_BR: 5.0 Pro/4.0 1K · 4:3 (1152x864)
+              zh_Hans: 5.0 Pro/4.0 1K · 4:3 (1152x864)
+            value: 1152x864
+          - icon: ''
+            label:
+              en_US: 5.0 Pro/4.0 1K · 3:4 (864x1152)
+              ja_JP: 5.0 Pro/4.0 1K · 3:4 (864x1152)
+              pt_BR: 5.0 Pro/4.0 1K · 3:4 (864x1152)
+              zh_Hans: 5.0 Pro/4.0 1K · 3:4 (864x1152)
+            value: 864x1152
+          - icon: ''
+            label:
+              en_US: 5.0 Pro 1K · 16:9 (1424x800)
+              ja_JP: 5.0 Pro 1K · 16:9 (1424x800)
+              pt_BR: 5.0 Pro 1K · 16:9 (1424x800)
+              zh_Hans: 5.0 Pro 1K · 16:9 (1424x800)
+            value: 1424x800
+          - icon: ''
+            label:
+              en_US: 5.0 Pro 1K · 9:16 (800x1424)
+              ja_JP: 5.0 Pro 1K · 9:16 (800x1424)
+              pt_BR: 5.0 Pro 1K · 9:16 (800x1424)
+              zh_Hans: 5.0 Pro 1K · 9:16 (800x1424)
+            value: 800x1424
+          - icon: ''
+            label:
+              en_US: 5.0 Pro 1K · 21:9 (1568x672)
+              ja_JP: 5.0 Pro 1K · 21:9 (1568x672)
+              pt_BR: 5.0 Pro 1K · 21:9 (1568x672)
+              zh_Hans: 5.0 Pro 1K · 21:9 (1568x672)
+            value: 1568x672
+          - icon: ''
+            label:
+              en_US: 4.0 1K · 16:9 (1280x720)
+              ja_JP: 4.0 1K · 16:9 (1280x720)
+              pt_BR: 4.0 1K · 16:9 (1280x720)
+              zh_Hans: 4.0 1K · 16:9 (1280x720)
+            value: 1280x720
+          - icon: ''
+            label:
+              en_US: 4.0 1K · 9:16 (720x1280)
+              ja_JP: 4.0 1K · 9:16 (720x1280)
+              pt_BR: 4.0 1K · 9:16 (720x1280)
+              zh_Hans: 4.0 1K · 9:16 (720x1280)
+            value: 720x1280
+          - icon: ''
+            label:
+              en_US: 4.0 1K · 21:9 (1512x648)
+              ja_JP: 4.0 1K · 21:9 (1512x648)
+              pt_BR: 4.0 1K · 21:9 (1512x648)
+              zh_Hans: 4.0 1K · 21:9 (1512x648)
+            value: 1512x648
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: jpeg
+          form: form
+          human_description:
+            en_US: Output image format. Only effective for Seedream 5.0 Pro/Lite;
+              ignored by 4.5/4.0
+            ja_JP: Output image format. Only effective for Seedream 5.0 Pro/Lite;
+              ignored by 4.5/4.0
+            pt_BR: Output image format. Only effective for Seedream 5.0 Pro/Lite;
+              ignored by 4.5/4.0
+            zh_Hans: 输出图像格式，仅对 Seedream 5.0 Pro/Lite 生效，4.5/4.0 会忽略此参数
+          input_schema: null
+          label:
+            en_US: Output Format
+            ja_JP: Output Format
+            pt_BR: Output Format
+            zh_Hans: 输出格式
+          llm_description: Output image format (png/jpeg), only effective for 5.0
+            Pro/Lite
+          max: null
+          min: null
+          multiple: false
+          name: output_format
+          options:
+          - icon: ''
+            label:
+              en_US: JPEG
+              ja_JP: JPEG
+              pt_BR: JPEG
+              zh_Hans: JPEG
+            value: jpeg
+          - icon: ''
+            label:
+              en_US: PNG
+              ja_JP: PNG
+              pt_BR: PNG
+              zh_Hans: PNG
+            value: png
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 'true'
+          form: form
+          human_description:
+            en_US: Whether to add 'AI Generated' watermark to the image
+            ja_JP: Whether to add 'AI Generated' watermark to the image
+            pt_BR: Whether to add 'AI Generated' watermark to the image
+            zh_Hans: 是否在图像上添加'AI生成'水印
+          input_schema: null
+          label:
+            en_US: Watermark
+            ja_JP: Watermark
+            pt_BR: Watermark
+            zh_Hans: 水印
+          llm_description: Whether to add 'AI Generated' watermark to the image
+          max: null
+          min: null
+          multiple: false
+          name: watermark
+          options:
+          - icon: ''
+            label:
+              en_US: Enabled
+              ja_JP: Enabled
+              pt_BR: Enabled
+              zh_Hans: 启用
+            value: 'true'
+          - icon: ''
+            label:
+              en_US: Disabled
+              ja_JP: Disabled
+              pt_BR: Disabled
+              zh_Hans: 禁用
+            value: 'false'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: doubao-seedream-4-5-251128
+          form: form
+          human_description:
+            en_US: Choose the Seedream model version to use
+            ja_JP: Choose the Seedream model version to use
+            pt_BR: Choose the Seedream model version to use
+            zh_Hans: 选择要使用的Seedream模型版本
+          input_schema: null
+          label:
+            en_US: Model Version
+            ja_JP: Model Version
+            pt_BR: Model Version
+            zh_Hans: 模型版本
+          llm_description: Choose the Seedream model version to use
+          max: null
+          min: null
+          multiple: false
+          name: model
+          options:
+          - icon: ''
+            label:
+              en_US: Seedream4.0
+              ja_JP: Seedream4.0
+              pt_BR: Seedream4.0
+              zh_Hans: Seedream4.0
+            value: doubao-seedream-4-0-250828
+          - icon: ''
+            label:
+              en_US: Seedream4.5
+              ja_JP: Seedream4.5
+              pt_BR: Seedream4.5
+              zh_Hans: Seedream4.5
+            value: doubao-seedream-4-5-251128
+          - icon: ''
+            label:
+              en_US: Seedream5.0 Lite
+              ja_JP: Seedream5.0 Lite
+              pt_BR: Seedream5.0 Lite
+              zh_Hans: Seedream5.0 Lite
+            value: doubao-seedream-5-0-260128
+          - icon: ''
+            label:
+              en_US: Seedream5.0 Pro
+              ja_JP: Seedream5.0 Pro
+              pt_BR: Seedream5.0 Pro
+              zh_Hans: Seedream5.0 Pro
+            value: doubao-seedream-5-0-pro-260628
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          model: ''
+          output_format: ''
+          prompt: ''
+          size: ''
+          watermark: ''
+        plugin_id: sawyer-shi/seedream_aigc
+        plugin_unique_identifier: sawyer-shi/seedream_aigc:0.0.7@6a8fb2cb254d35a3ba93c5d31776071fc0e9832bababb1ddb6a191d7d6fe5a81
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=8a942cd8-e683-4c2f-9c94-df9af4978d41&filename=9638639a259e524d8a12d8fa29d692c7b226cc88124ff4fb1eb2d31d0c9f88d3.svg
+        provider_id: sawyer-shi/seedream_aigc/seedream_aigc
+        provider_name: sawyer-shi/seedream_aigc/seedream_aigc
+        provider_show_name: 即梦AIGC
+        provider_type: builtin
+        selected: false
+        title: Seedream-文生图
+        tool_configurations:
+          model:
+            type: constant
+            value: doubao-seedream-5-0-pro-260628
+          output_format:
+            type: constant
+            value: jpeg
+          size:
+            type: constant
+            value: 2048x2048
+          watermark:
+            type: constant
+            value: 'true'
+        tool_description: 使用Seedream模型根据文本描述生成图像
+        tool_label: Seedream-文生图
+        tool_name: text2image
+        tool_node_version: '2'
+        tool_parameters:
+          prompt:
+            type: mixed
+            value: '{{#sys.query#}}'
+        type: tool
+      height: 166
+      id: '1792900080788'
+      position:
+        x: 786.0185251175086
+        y: -134.67600199181385
+      positionAbsolute:
+        x: 786.0185251175086
+        y: -134.67600199181385
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Text description of the video you want to generate (max 500 chars)
+            ja_JP: Text description of the video you want to generate (max 500 chars)
+            pt_BR: Text description of the video you want to generate (max 500 chars)
+            zh_Hans: 您想要生成的视频的文本描述（最多500字）
+          input_schema: null
+          label:
+            en_US: Prompt
+            ja_JP: Prompt
+            pt_BR: Prompt
+            zh_Hans: 提示词
+          llm_description: Text description of the video to generate (max 500 chars)
+          max: null
+          min: null
+          multiple: false
+          name: prompt
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: doubao-seedance-1-5-pro-251215
+          form: form
+          human_description:
+            en_US: Model for video generation
+            ja_JP: Model for video generation
+            pt_BR: Model for video generation
+            zh_Hans: 视频生成模型
+          input_schema: null
+          label:
+            en_US: Model
+            ja_JP: Model
+            pt_BR: Model
+            zh_Hans: 模型
+          llm_description: Model for video generation
+          max: null
+          min: null
+          multiple: false
+          name: model
+          options:
+          - icon: ''
+            label:
+              en_US: Seedance 2.5
+              ja_JP: Seedance 2.5
+              pt_BR: Seedance 2.5
+              zh_Hans: Seedance 2.5
+            value: doubao-seedance-2-5-260628
+          - icon: ''
+            label:
+              en_US: Seedance 1.0 Pro
+              ja_JP: Seedance 1.0 Pro
+              pt_BR: Seedance 1.0 Pro
+              zh_Hans: Seedance 1.0 Pro
+            value: doubao-seedance-1-0-pro-250528
+          - icon: ''
+            label:
+              en_US: Seedance 1.0 Pro Fast
+              ja_JP: Seedance 1.0 Pro Fast
+              pt_BR: Seedance 1.0 Pro Fast
+              zh_Hans: Seedance 1.0 Pro Fast
+            value: doubao-seedance-1-0-pro-fast-251015
+          - icon: ''
+            label:
+              en_US: Seedance 1.5 Pro
+              ja_JP: Seedance 1.5 Pro
+              pt_BR: Seedance 1.5 Pro
+              zh_Hans: Seedance 1.5 Pro
+            value: doubao-seedance-1-5-pro-251215
+          - icon: ''
+            label:
+              en_US: Seedance 2.0
+              ja_JP: Seedance 2.0
+              pt_BR: Seedance 2.0
+              zh_Hans: Seedance 2.0
+            value: doubao-seedance-2-0-260128
+          - icon: ''
+            label:
+              en_US: Seedance 2.0 Fast
+              ja_JP: Seedance 2.0 Fast
+              pt_BR: Seedance 2.0 Fast
+              zh_Hans: Seedance 2.0 Fast
+            value: doubao-seedance-2-0-fast-260128
+          - icon: ''
+            label:
+              en_US: Seedance 2.0 Mini
+              ja_JP: Seedance 2.0 Mini
+              pt_BR: Seedance 2.0 Mini
+              zh_Hans: Seedance 2.0 Mini
+            value: doubao-seedance-2-0-mini-260615
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 720p
+          form: form
+          human_description:
+            en_US: Video resolution
+            ja_JP: Video resolution
+            pt_BR: Video resolution
+            zh_Hans: 视频分辨率
+          input_schema: null
+          label:
+            en_US: Resolution
+            ja_JP: Resolution
+            pt_BR: Resolution
+            zh_Hans: 分辨率
+          llm_description: Video resolution
+          max: null
+          min: null
+          multiple: false
+          name: resolution
+          options:
+          - icon: ''
+            label:
+              en_US: 480p
+              ja_JP: 480p
+              pt_BR: 480p
+              zh_Hans: 480p
+            value: 480p
+          - icon: ''
+            label:
+              en_US: 720p
+              ja_JP: 720p
+              pt_BR: 720p
+              zh_Hans: 720p
+            value: 720p
+          - icon: ''
+            label:
+              en_US: 1080p
+              ja_JP: 1080p
+              pt_BR: 1080p
+              zh_Hans: 1080p
+            value: 1080p
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: '16:9'
+          form: form
+          human_description:
+            en_US: Video aspect ratio
+            ja_JP: Video aspect ratio
+            pt_BR: Video aspect ratio
+            zh_Hans: 视频宽高比
+          input_schema: null
+          label:
+            en_US: Aspect Ratio
+            ja_JP: Aspect Ratio
+            pt_BR: Aspect Ratio
+            zh_Hans: 宽高比
+          llm_description: Video aspect ratio
+          max: null
+          min: null
+          multiple: false
+          name: ratio
+          options:
+          - icon: ''
+            label:
+              en_US: '16:9'
+              ja_JP: '16:9'
+              pt_BR: '16:9'
+              zh_Hans: '16:9'
+            value: '16:9'
+          - icon: ''
+            label:
+              en_US: '4:3'
+              ja_JP: '4:3'
+              pt_BR: '4:3'
+              zh_Hans: '4:3'
+            value: '4:3'
+          - icon: ''
+            label:
+              en_US: '1:1'
+              ja_JP: '1:1'
+              pt_BR: '1:1'
+              zh_Hans: '1:1'
+            value: '1:1'
+          - icon: ''
+            label:
+              en_US: '3:4'
+              ja_JP: '3:4'
+              pt_BR: '3:4'
+              zh_Hans: '3:4'
+            value: '3:4'
+          - icon: ''
+            label:
+              en_US: '9:16'
+              ja_JP: '9:16'
+              pt_BR: '9:16'
+              zh_Hans: '9:16'
+            value: '9:16'
+          - icon: ''
+            label:
+              en_US: '21:9'
+              ja_JP: '21:9'
+              pt_BR: '21:9'
+              zh_Hans: '21:9'
+            value: '21:9'
+          - icon: ''
+            label:
+              en_US: Adaptive
+              ja_JP: Adaptive
+              pt_BR: Adaptive
+              zh_Hans: 自适应
+            value: adaptive
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 5
+          form: form
+          human_description:
+            en_US: Video duration in seconds (2-30 depending on model, -1 for auto
+              on Seedance 1.5/2.0/2.5)
+            ja_JP: Video duration in seconds (2-30 depending on model, -1 for auto
+              on Seedance 1.5/2.0/2.5)
+            pt_BR: Video duration in seconds (2-30 depending on model, -1 for auto
+              on Seedance 1.5/2.0/2.5)
+            zh_Hans: 视频时长(秒)，不同模型范围不同(最高30)，-1 为自动（仅 Seedance 1.5/2.0/2.5 支持）
+          input_schema: null
+          label:
+            en_US: Duration (seconds)
+            ja_JP: Duration (seconds)
+            pt_BR: Duration (seconds)
+            zh_Hans: 时长(秒)
+          llm_description: Video duration in seconds (model-dependent, -1 for auto
+            on 1.5/2.0/2.5)
+          max: 30
+          min: -1
+          multiple: false
+          name: duration
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: -1
+          form: form
+          human_description:
+            en_US: Random seed for reproducible results (-1 for random)
+            ja_JP: Random seed for reproducible results (-1 for random)
+            pt_BR: Random seed for reproducible results (-1 for random)
+            zh_Hans: 随机种子，用于生成可重复的结果(-1为随机)
+          input_schema: null
+          label:
+            en_US: Seed
+            ja_JP: Seed
+            pt_BR: Seed
+            zh_Hans: 种子
+          llm_description: Random seed for reproducible results (-1 for random)
+          max: 4294967295
+          min: -1
+          multiple: false
+          name: seed
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: 'false'
+          form: form
+          human_description:
+            en_US: Whether to fix camera position
+            ja_JP: Whether to fix camera position
+            pt_BR: Whether to fix camera position
+            zh_Hans: 是否固定摄像头位置
+          input_schema: null
+          label:
+            en_US: Fixed Camera
+            ja_JP: Fixed Camera
+            pt_BR: Fixed Camera
+            zh_Hans: 固定摄像头
+          llm_description: Whether to fix camera position
+          max: null
+          min: null
+          multiple: false
+          name: camera_fixed
+          options:
+          - icon: ''
+            label:
+              en_US: Enabled
+              ja_JP: Enabled
+              pt_BR: Enabled
+              zh_Hans: 启用
+            value: 'true'
+          - icon: ''
+            label:
+              en_US: Disabled
+              ja_JP: Disabled
+              pt_BR: Disabled
+              zh_Hans: 禁用
+            value: 'false'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 'true'
+          form: form
+          human_description:
+            en_US: Whether to add watermark to the video
+            ja_JP: Whether to add watermark to the video
+            pt_BR: Whether to add watermark to the video
+            zh_Hans: 是否在视频中添加水印
+          input_schema: null
+          label:
+            en_US: Watermark
+            ja_JP: Watermark
+            pt_BR: Watermark
+            zh_Hans: 水印
+          llm_description: Whether to add watermark to the video
+          max: null
+          min: null
+          multiple: false
+          name: watermark
+          options:
+          - icon: ''
+            label:
+              en_US: Enabled
+              ja_JP: Enabled
+              pt_BR: Enabled
+              zh_Hans: 启用
+            value: 'true'
+          - icon: ''
+            label:
+              en_US: Disabled
+              ja_JP: Disabled
+              pt_BR: Disabled
+              zh_Hans: 禁用
+            value: 'false'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 'true'
+          form: form
+          human_description:
+            en_US: Whether to generate synchronized audio (Seedance 2.5 / 1.5 Pro
+              / 2.0 series)
+            ja_JP: Whether to generate synchronized audio (Seedance 2.5 / 1.5 Pro
+              / 2.0 series)
+            pt_BR: Whether to generate synchronized audio (Seedance 2.5 / 1.5 Pro
+              / 2.0 series)
+            zh_Hans: 是否生成同步音频（Seedance 2.5 / 1.5 Pro / 2.0 系列）
+          input_schema: null
+          label:
+            en_US: Audio
+            ja_JP: Audio
+            pt_BR: Audio
+            zh_Hans: 音频
+          llm_description: Whether to generate synchronized audio
+          max: null
+          min: null
+          multiple: false
+          name: generate_audio
+          options:
+          - icon: ''
+            label:
+              en_US: Enabled
+              ja_JP: Enabled
+              pt_BR: Enabled
+              zh_Hans: 启用
+            value: 'true'
+          - icon: ''
+            label:
+              en_US: Disabled
+              ja_JP: Disabled
+              pt_BR: Disabled
+              zh_Hans: 禁用
+            value: 'false'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 'false'
+          form: form
+          human_description:
+            en_US: Generate draft video (Seedance 1.5 pro only)
+            ja_JP: Generate draft video (Seedance 1.5 pro only)
+            pt_BR: Generate draft video (Seedance 1.5 pro only)
+            zh_Hans: 生成样片视频（仅Seedance 1.5 pro）
+          input_schema: null
+          label:
+            en_US: Draft Mode
+            ja_JP: Draft Mode
+            pt_BR: Draft Mode
+            zh_Hans: 样片模式
+          llm_description: Generate draft video
+          max: null
+          min: null
+          multiple: false
+          name: draft
+          options:
+          - icon: ''
+            label:
+              en_US: Enabled
+              ja_JP: Enabled
+              pt_BR: Enabled
+              zh_Hans: 启用
+            value: 'true'
+          - icon: ''
+            label:
+              en_US: Disabled
+              ja_JP: Disabled
+              pt_BR: Disabled
+              zh_Hans: 禁用
+            value: 'false'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 'false'
+          form: form
+          human_description:
+            en_US: Return last frame image in query
+            ja_JP: Return last frame image in query
+            pt_BR: Return last frame image in query
+            zh_Hans: 查询结果返回尾帧图像
+          input_schema: null
+          label:
+            en_US: Return Last Frame
+            ja_JP: Return Last Frame
+            pt_BR: Return Last Frame
+            zh_Hans: 返回尾帧
+          llm_description: Return last frame image
+          max: null
+          min: null
+          multiple: false
+          name: return_last_frame
+          options:
+          - icon: ''
+            label:
+              en_US: Enabled
+              ja_JP: Enabled
+              pt_BR: Enabled
+              zh_Hans: 启用
+            value: 'true'
+          - icon: ''
+            label:
+              en_US: Disabled
+              ja_JP: Disabled
+              pt_BR: Disabled
+              zh_Hans: 禁用
+            value: 'false'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: default
+          form: form
+          human_description:
+            en_US: 'Service tier: default or flex (Seedance 2.0 series supports default
+              only)'
+            ja_JP: 'Service tier: default or flex (Seedance 2.0 series supports default
+              only)'
+            pt_BR: 'Service tier: default or flex (Seedance 2.0 series supports default
+              only)'
+            zh_Hans: 服务等级：default 或 flex（Seedance 2.0 系列仅支持 default）
+          input_schema: null
+          label:
+            en_US: Service Tier
+            ja_JP: Service Tier
+            pt_BR: Service Tier
+            zh_Hans: 服务等级
+          llm_description: Service tier
+          max: null
+          min: null
+          multiple: false
+          name: service_tier
+          options:
+          - icon: ''
+            label:
+              en_US: Default
+              ja_JP: Default
+              pt_BR: Default
+              zh_Hans: 默认
+            value: default
+          - icon: ''
+            label:
+              en_US: Flex
+              ja_JP: Flex
+              pt_BR: Flex
+              zh_Hans: 离线
+            value: flex
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: standard
+          form: form
+          human_description:
+            en_US: Video bitrate quality (Seedance 2.0 series only). Higher bitrate
+              preserves more detail, texture and color gradients per frame without
+              extra token cost
+            ja_JP: Video bitrate quality (Seedance 2.0 series only). Higher bitrate
+              preserves more detail, texture and color gradients per frame without
+              extra token cost
+            pt_BR: Video bitrate quality (Seedance 2.0 series only). Higher bitrate
+              preserves more detail, texture and color gradients per frame without
+              extra token cost
+            zh_Hans: 视频比特率画质（仅 Seedance 2.0 系列支持）。比特率越高，每帧保留的细节、纹理和色彩过渡信息越多，不产生额外
+              token 消耗
+          input_schema: null
+          label:
+            en_US: Bitrate Mode
+            ja_JP: Bitrate Mode
+            pt_BR: Bitrate Mode
+            zh_Hans: 比特率模式
+          llm_description: 'Video bitrate mode: standard or high (Seedance 2.0 series
+            only)'
+          max: null
+          min: null
+          multiple: false
+          name: bitrate_mode
+          options:
+          - icon: ''
+            label:
+              en_US: Standard
+              ja_JP: Standard
+              pt_BR: Standard
+              zh_Hans: 标准
+            value: standard
+          - icon: ''
+            label:
+              en_US: High
+              ja_JP: High
+              pt_BR: High
+              zh_Hans: 高
+            value: high
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: mp4
+          form: form
+          human_description:
+            en_US: Output video format (Seedance 2.5 only). mov offers higher color
+              precision for professional post-processing
+            ja_JP: Output video format (Seedance 2.5 only). mov offers higher color
+              precision for professional post-processing
+            pt_BR: Output video format (Seedance 2.5 only). mov offers higher color
+              precision for professional post-processing
+            zh_Hans: 输出视频格式（仅 Seedance 2.5 支持）。mov 面向专业后期，色彩精度更高
+          input_schema: null
+          label:
+            en_US: Output Format
+            ja_JP: Output Format
+            pt_BR: Output Format
+            zh_Hans: 输出格式
+          llm_description: Output video format, mp4 or mov (Seedance 2.5 only)
+          max: null
+          min: null
+          multiple: false
+          name: output_format
+          options:
+          - icon: ''
+            label:
+              en_US: MP4
+              ja_JP: MP4
+              pt_BR: MP4
+              zh_Hans: MP4
+            value: mp4
+          - icon: ''
+            label:
+              en_US: MOV
+              ja_JP: MOV
+              pt_BR: MOV
+              zh_Hans: MOV
+            value: mov
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: Execution priority 0-9 (Seedance 2.5 / 2.0 series). Higher value
+              queues ahead of lower priority tasks
+            ja_JP: Execution priority 0-9 (Seedance 2.5 / 2.0 series). Higher value
+              queues ahead of lower priority tasks
+            pt_BR: Execution priority 0-9 (Seedance 2.5 / 2.0 series). Higher value
+              queues ahead of lower priority tasks
+            zh_Hans: 执行优先级 0-9（Seedance 2.5 / 2.0 系列）。数值越大越优先执行
+          input_schema: null
+          label:
+            en_US: Priority
+            ja_JP: Priority
+            pt_BR: Priority
+            zh_Hans: 执行优先级
+          llm_description: Execution priority 0-9 (Seedance 2.5 / 2.0 series)
+          max: 9
+          min: 0
+          multiple: false
+          name: priority
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: 'false'
+          form: form
+          human_description:
+            en_US: Enable web search tool (Seedance 2.5 / 2.0 series). Model decides
+              whether to search for timelier content
+            ja_JP: Enable web search tool (Seedance 2.5 / 2.0 series). Model decides
+              whether to search for timelier content
+            pt_BR: Enable web search tool (Seedance 2.5 / 2.0 series). Model decides
+              whether to search for timelier content
+            zh_Hans: 开启联网搜索工具（Seedance 2.5 / 2.0 系列）。模型将自主判断是否搜索以提升时效性
+          input_schema: null
+          label:
+            en_US: Web Search
+            ja_JP: Web Search
+            pt_BR: Web Search
+            zh_Hans: 联网搜索
+          llm_description: Enable web search tool (Seedance 2.5 / 2.0 series)
+          max: null
+          min: null
+          multiple: false
+          name: web_search
+          options:
+          - icon: ''
+            label:
+              en_US: Enabled
+              ja_JP: Enabled
+              pt_BR: Enabled
+              zh_Hans: 启用
+            value: 'true'
+          - icon: ''
+            label:
+              en_US: Disabled
+              ja_JP: Disabled
+              pt_BR: Disabled
+              zh_Hans: 禁用
+            value: 'false'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          bitrate_mode: ''
+          camera_fixed: ''
+          draft: ''
+          duration: ''
+          generate_audio: ''
+          model: ''
+          output_format: ''
+          priority: ''
+          prompt: ''
+          ratio: ''
+          resolution: ''
+          return_last_frame: ''
+          seed: ''
+          service_tier: ''
+          watermark: ''
+          web_search: ''
+        plugin_id: sawyer-shi/seedream_aigc
+        plugin_unique_identifier: sawyer-shi/seedream_aigc:0.0.7@6a8fb2cb254d35a3ba93c5d31776071fc0e9832bababb1ddb6a191d7d6fe5a81
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=8a942cd8-e683-4c2f-9c94-df9af4978d41&filename=9638639a259e524d8a12d8fa29d692c7b226cc88124ff4fb1eb2d31d0c9f88d3.svg
+        provider_id: sawyer-shi/seedream_aigc/seedream_aigc
+        provider_name: sawyer-shi/seedream_aigc/seedream_aigc
+        provider_show_name: 即梦AIGC
+        provider_type: builtin
+        selected: false
+        title: Seedance-文生视频
+        tool_configurations:
+          bitrate_mode:
+            type: constant
+            value: standard
+          camera_fixed:
+            type: constant
+            value: 'false'
+          draft:
+            type: constant
+            value: 'false'
+          duration:
+            type: constant
+            value: 5
+          generate_audio:
+            type: constant
+            value: 'true'
+          model:
+            type: constant
+            value: doubao-seedance-1-0-pro-fast-251015
+          output_format:
+            type: constant
+            value: mp4
+          priority:
+            type: constant
+            value: 0
+          ratio:
+            type: constant
+            value: '16:9'
+          resolution:
+            type: constant
+            value: 480p
+          return_last_frame:
+            type: constant
+            value: 'false'
+          seed:
+            type: constant
+            value: -1
+          service_tier:
+            type: constant
+            value: default
+          watermark:
+            type: constant
+            value: 'true'
+          web_search:
+            type: constant
+            value: 'false'
+        tool_description: 使用Seedance模型根据文本描述生成视频
+        tool_label: Seedance-文生视频
+        tool_name: text_2_video
+        tool_node_version: '2'
+        tool_parameters:
+          prompt:
+            type: mixed
+            value: '{{#sys.query#}}'
+        type: tool
+      height: 452
+      id: '1792909153794'
+      position:
+        x: 798.4963090006064
+        y: 54.6992422237296
+      positionAbsolute:
+        x: 798.4963090006064
+        y: 54.6992422237296
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        agent_parameters:
+          instruction:
+            type: constant
+            value: 根据 {{#sys.query#}}，使用amap-maps实现查询
+          mcp_servers_config:
+            type: constant
+            value: "{\n  \"mcpServers\": {\n    \"amap-maps\": {\n      \"type\":\
+              \ \"sse\",\n      \"url\": \"https://mcp.api-inference.modelscope.net/6dcd6d2882ab41/sse\"\
+              \n    }\n  }\n}"
+          model:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: deepseek-v4-flash
+              model_type: llm
+              provider: langgenius/deepseek/deepseek
+              type: model-selector
+          query:
+            type: constant
+            value: '{{#sys.query#}}'
+          tools:
+            type: constant
+            value:
+            - enabled: true
+              extra:
+                description: 一个用于获取当前时间的工具。
+              parameters: {}
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings:
+                format:
+                  value:
+                    type: mixed
+                    value: '%Y-%m-%d %H:%M:%S'
+                timezone:
+                  value:
+                    type: constant
+                    value: UTC
+              tool_description: 一个用于获取当前时间的工具。
+              tool_label: 获取当前时间
+              tool_name: current_time
+              type: builtin
+            - enabled: true
+              extra:
+                description: 获取时间戳
+              parameters:
+                localtime:
+                  auto: 1
+                  value: null
+                timezone:
+                  auto: 1
+                  value: null
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings: {}
+              tool_description: 获取时间戳
+              tool_label: 获取时间戳
+              tool_name: localtime_to_timestamp
+              type: builtin
+            - enabled: true
+              extra:
+                description: 时间戳转换
+              parameters:
+                timestamp:
+                  auto: 1
+                  value: null
+                timezone:
+                  auto: 1
+                  value: null
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings: {}
+              tool_description: 时间戳转换
+              tool_label: 时间戳转换
+              tool_name: timestamp_to_localtime
+              type: builtin
+            - enabled: true
+              extra:
+                description: 时区转换
+              parameters:
+                current_time:
+                  auto: 1
+                  value: null
+                current_timezone:
+                  auto: 1
+                  value: null
+                target_timezone:
+                  auto: 1
+                  value: null
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings: {}
+              tool_description: 时区转换
+              tool_label: 时区转换
+              tool_name: timezone_conversion
+              type: builtin
+            - enabled: true
+              extra:
+                description: 计算指定日期为星期几的工具。
+              parameters:
+                day:
+                  auto: 1
+                  value: null
+                month:
+                  auto: 1
+                  value: null
+                year:
+                  auto: 1
+                  value: null
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings: {}
+              tool_description: 计算指定日期为星期几的工具。
+              tool_label: 星期几计算器
+              tool_name: weekday
+              type: builtin
+        agent_strategy_label: ReAct (支持 MCP 工具)
+        agent_strategy_name: mcp_sse_ReAct
+        agent_strategy_provider_name: junjiem/mcp_see_agent/mcp_see_agent
+        meta:
+          minimum_dify_version: null
+          version: 0.0.1
+        output_schema: {}
+        plugin_unique_identifier: junjiem/mcp_see_agent:0.2.4@82caf96890992e9dec2c43c3fac82bfce8bd18a41de7c2b6948151b2d7f7b7a2
+        selected: false
+        title: 高德MCp
+        tool_node_version: '2'
+        type: agent
+      height: 188
+      id: '1792913054274'
+      position:
+        x: 798.4963090006064
+        y: 523.9424030466317
+      positionAbsolute:
+        x: 798.4963090006064
+        y: 523.9424030466317
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: '{{#1792913054274.text#}}'
+        selected: false
+        title: 直接回复 5
+        type: answer
+        variables: []
+      height: 102
+      id: '1792913289466'
+      position:
+        x: 1142.7280343507443
+        y: 415.7427585551335
+      positionAbsolute:
+        x: 1142.7280343507443
+        y: 415.7427585551335
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        agent_parameters:
+          mcp_servers_config:
+            type: constant
+            value: "{\n  \"mcpServers\": {\n    \"howtocook-mcp\": {\n      \"type\"\
+              : \"sse\",\n      \"url\": \"https://mcp-.api-inference.modelscope.net/sse\"\
+              \n    }\n  }\n}"
+          model:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: deepseek-v4-flash
+              model_type: llm
+              provider: langgenius/deepseek/deepseek
+              type: model-selector
+          query:
+            type: constant
+            value: '{{#sys.query#}}'
+          tools:
+            type: constant
+            value:
+            - enabled: true
+              extra:
+                description: 一个用于获取当前时间的工具。
+              parameters: {}
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings:
+                format:
+                  value:
+                    type: mixed
+                    value: '%Y-%m-%d %H:%M:%S'
+                timezone:
+                  value:
+                    type: constant
+                    value: UTC
+              tool_description: 一个用于获取当前时间的工具。
+              tool_label: 获取当前时间
+              tool_name: current_time
+              type: builtin
+            - enabled: true
+              extra:
+                description: 获取时间戳
+              parameters:
+                localtime:
+                  auto: 1
+                  value: null
+                timezone:
+                  auto: 1
+                  value: null
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings: {}
+              tool_description: 获取时间戳
+              tool_label: 获取时间戳
+              tool_name: localtime_to_timestamp
+              type: builtin
+            - enabled: true
+              extra:
+                description: 时间戳转换
+              parameters:
+                timestamp:
+                  auto: 1
+                  value: null
+                timezone:
+                  auto: 1
+                  value: null
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings: {}
+              tool_description: 时间戳转换
+              tool_label: 时间戳转换
+              tool_name: timestamp_to_localtime
+              type: builtin
+            - enabled: true
+              extra:
+                description: 时区转换
+              parameters:
+                current_time:
+                  auto: 1
+                  value: null
+                current_timezone:
+                  auto: 1
+                  value: null
+                target_timezone:
+                  auto: 1
+                  value: null
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings: {}
+              tool_description: 时区转换
+              tool_label: 时区转换
+              tool_name: timezone_conversion
+              type: builtin
+            - enabled: true
+              extra:
+                description: 计算指定日期为星期几的工具。
+              parameters:
+                day:
+                  auto: 1
+                  value: null
+                month:
+                  auto: 1
+                  value: null
+                year:
+                  auto: 1
+                  value: null
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings: {}
+              tool_description: 计算指定日期为星期几的工具。
+              tool_label: 星期几计算器
+              tool_name: weekday
+              type: builtin
+        agent_strategy_label: ReAct (支持 MCP 工具)
+        agent_strategy_name: mcp_sse_ReAct
+        agent_strategy_provider_name: junjiem/mcp_see_agent/mcp_see_agent
+        meta:
+          minimum_dify_version: null
+          version: 0.0.1
+        output_schema: {}
+        plugin_unique_identifier: junjiem/mcp_see_agent:0.2.4@82caf96890992e9dec2c43c3fac82bfce8bd18a41de7c2b6948151b2d7f7b7a2
+        selected: false
+        title: 吃什么MCP
+        tool_node_version: '2'
+        type: agent
+      height: 188
+      id: '1792913962819'
+      position:
+        x: 793.8953263183017
+        y: 735.4607528114096
+      positionAbsolute:
+        x: 793.8953263183017
+        y: 735.4607528114096
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        agent_parameters:
+          mcp_servers_config:
+            type: constant
+            value: "{\n  \"mcpServers\": {\n    \"real-time_news\": {\n      \"type\"\
+              : \"sse\",\n      \"url\": \"https://mcp.api-inference.modelscope.net/d9eef5854ca94c/sse\"\
+              \n    }\n  }\n}"
+          model:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: deepseek-v4-flash
+              model_type: llm
+              provider: langgenius/deepseek/deepseek
+              type: model-selector
+          query:
+            type: constant
+            value: '{{#sys.query#}}'
+          tools:
+            type: constant
+            value:
+            - enabled: true
+              extra:
+                description: 一个用于获取当前时间的工具。
+              parameters: {}
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings:
+                format:
+                  value:
+                    type: mixed
+                    value: '%Y-%m-%d %H:%M:%S'
+                timezone:
+                  value:
+                    type: constant
+                    value: UTC
+              tool_description: 一个用于获取当前时间的工具。
+              tool_label: 获取当前时间
+              tool_name: current_time
+              type: builtin
+            - enabled: true
+              extra:
+                description: 获取时间戳
+              parameters:
+                localtime:
+                  auto: 1
+                  value: null
+                timezone:
+                  auto: 1
+                  value: null
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings: {}
+              tool_description: 获取时间戳
+              tool_label: 获取时间戳
+              tool_name: localtime_to_timestamp
+              type: builtin
+            - enabled: true
+              extra:
+                description: 时间戳转换
+              parameters:
+                timestamp:
+                  auto: 1
+                  value: null
+                timezone:
+                  auto: 1
+                  value: null
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings: {}
+              tool_description: 时间戳转换
+              tool_label: 时间戳转换
+              tool_name: timestamp_to_localtime
+              type: builtin
+            - enabled: true
+              extra:
+                description: 时区转换
+              parameters:
+                current_time:
+                  auto: 1
+                  value: null
+                current_timezone:
+                  auto: 1
+                  value: null
+                target_timezone:
+                  auto: 1
+                  value: null
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings: {}
+              tool_description: 时区转换
+              tool_label: 时区转换
+              tool_name: timezone_conversion
+              type: builtin
+            - enabled: true
+              extra:
+                description: 计算指定日期为星期几的工具。
+              parameters:
+                day:
+                  auto: 1
+                  value: null
+                month:
+                  auto: 1
+                  value: null
+                year:
+                  auto: 1
+                  value: null
+              plugin_id: null
+              provider_name: time
+              provider_show_name: time
+              settings: {}
+              tool_description: 计算指定日期为星期几的工具。
+              tool_label: 星期几计算器
+              tool_name: weekday
+              type: builtin
+        agent_strategy_label: ReAct (支持 MCP 工具)
+        agent_strategy_name: mcp_sse_ReAct
+        agent_strategy_provider_name: junjiem/mcp_see_agent/mcp_see_agent
+        meta:
+          minimum_dify_version: null
+          version: 0.0.1
+        output_schema: {}
+        plugin_unique_identifier: junjiem/mcp_see_agent:0.2.4@82caf96890992e9dec2c43c3fac82bfce8bd18a41de7c2b6948151b2d7f7b7a2
+        selected: false
+        title: 新闻MCp
+        tool_node_version: '2'
+        type: agent
+      height: 188
+      id: '1792913974416'
+      position:
+        x: 786.0185251175086
+        y: 957.2793779019016
+      positionAbsolute:
+        x: 786.0185251175086
+        y: 957.2793779019016
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: '{{#1792913962819.text#}}'
+        selected: false
+        title: 直接回复 6
+        type: answer
+        variables: []
+      height: 102
+      id: '1792913981696'
+      position:
+        x: 1138.4319105975942
+        y: 668.1658508828262
+      positionAbsolute:
+        x: 1138.4319105975942
+        y: 668.1658508828262
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: '{{#1792913974416.text#}}'
+        selected: false
+        title: 直接回复 7
+        type: answer
+        variables: []
+      height: 102
+      id: '1792913987777'
+      position:
+        x: 1138.4319105975942
+        y: 802.7556547399931
+      positionAbsolute:
+        x: 1138.4319105975942
+        y: 802.7556547399931
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        code: "import json\n\ndef main(arg1=None):\n    fake_data = [\n        {\"\
+          商品名称\": \"红富士苹果\", \"价格\": 5.5, \"库存\": 1000},\n        {\"商品名称\": \"海南香蕉\"\
+          , \"价格\": 3.2, \"库存\": 1500},\n        {\"商品名称\": \"新疆哈密瓜\", \"价格\": 8.0,\
+          \ \"库存\": 500},\n        {\"商品名称\": \"赣南脐橙\", \"价格\": 6.5, \"库存\": 800}\n\
+          \    ]\n    \n    # 把列表转成带缩进的 JSON 字符串\n    json_string = json.dumps(fake_data,\
+          \ ensure_ascii=False)\n    \n    return {\n        \"chart_data\": json_string\
+          \  # 注意这里改名叫 chart_data\n    }"
+        code_language: python3
+        outputs: {}
+        selected: false
+        title: 代码执行
+        type: code
+        variables: []
+      height: 52
+      id: '1792919184746'
+      position:
+        x: 798.4963090006064
+        y: 1446.4457487160214
+      positionAbsolute:
+        x: 798.4963090006064
+        y: 1446.4457487160214
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: a930d03d-cce0-4d1d-ac39-7cc072f5f7ec
+          role: system
+          text: "# 一、 角色人设（Role）\n您是一位专业的数据查询师，擅长数据整理，具有清晰的逻辑思维和简洁表达能力。\n\n# 二、 背景（Background）\n\
+            用户提供了从数据库中查询到的原始数据，这些数据可能存在格式不统一、字段缺失、重复记录等问题，需要经过专业整理后才能有效展示。\n\n# 三、\
+            \ 任务目标（Task）\n1. 对原始数据进行归纳和整理\n2. 按照正确的逻辑对数据进行分类和排序\n3. 数据展示突出关键信息和数据洞察\n\
+            4. 提供易于理解的数据展示\n\n# 四、 限制提示（Limit）\n1. 不得随意删除重要数据\n2. 避免使用过于复杂或专业的统计术语\n\
+            3. 不得篡改原始数据的真实值\n4. 避免展示过多冗余信息，保持简洁明了\n5. 不得泄露敏感数据或个人隐私信息\n\n# 五、 输出格式要求（Example）\n\
+            \ 数据概览：简要说明数据内容即可\n\n这是我的数据：\n{{#1792919184746.import_json__def_main(arg1=None):_____fake_data_=_[_________{\"\
+            商品名称\":_\"红富士苹果\",_\"价格\":_5.5,_\"库存\":_1000},_________{\"商品名称\":_\"海南香蕉\"\
+            ,_\"价格\":_3.2,_\"库存\":_1500},_________{\"商品名称\":_\"新疆哈密瓜\",_\"价格\":_8.0,_\"\
+            库存\":_500},_________{\"商品名称\":_\"赣南脐橙\",_\"价格\":_6.5,_\"库存\":_800}_____]__________#_把列表转成带缩进的_JSON_字符串_____json_string_=_json.dumps(fake_data,_ensure_ascii=False)__________return_{_________\"\
+            chart_data\":_json_string__#_注意这里改名叫_chart_data_____}#}}"
+        selected: false
+        title: LLM 4
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1792919209807'
+      position:
+        x: 1103.9265774131707
+        y: 1428.314257808873
+      positionAbsolute:
+        x: 1103.9265774131707
+        y: 1428.314257808873
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: '{{#1792919209807.text#}}'
+        selected: false
+        title: 直接回复 9
+        type: answer
+        variables: []
+      height: 102
+      id: '1792919213638'
+      position:
+        x: 1454.9156680807139
+        y: 1415.1191792123489
+      positionAbsolute:
+        x: 1454.9156680807139
+        y: 1415.1191792123489
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        code: "import json\n\ndef main(arg1=None):\n    # 这里我们取价格作为 value\n    fake_data\
+          \ = [\n        {\"time\": \"红富士苹果\", \"value\": 3.5},\n        {\"time\"\
+          : \"海南香蕉\", \"value\": 1.5},\n        {\"time\": \"新疆哈密瓜\", \"value\": 5},\n\
+          \        {\"time\": \"赣南脐橙\", \"value\": 6.5}\n    ]\n    \n    # 转成 JSON\
+          \ 字符串\n    json_string = json.dumps(fake_data, ensure_ascii=False)\n   \
+          \ \n    return {\n        \"chart_data\": json_string\n    }"
+        code_language: python3
+        outputs:
+          chart_data:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 2
+        type: code
+        variables: []
+      height: 52
+      id: '1792920050979'
+      position:
+        x: 786.0185251175086
+        y: 1220.4219146649011
+      positionAbsolute:
+        x: 786.0185251175086
+        y: 1220.4219146649011
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-v4-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 9ab96990-56dc-484a-a849-250c8f3dc38a
+          role: system
+          text: "# 一、 角色人设（Role）\n你是一位专业的数据分析师，具备数据整理、清洗和可视化能力，能够从原始数据中提取关键信息并转化为直观的可视化展示。\n\
+            \n# 二、 背景（Background）\n用户已从数据库中查询到一批原始数据，这些数据可能包含多个字段、存在缺失值或格式不一致的情况，需要经过整理后生成可视化图表。\n\
+            \n# 三、 任务目标（Task）\n#工作流程\n1. 数据分析\n按照合理的规则进行数据分析整理总结\n2. 分析 & 可视化\n至少生成\
+            \ 1 幅图表（柱状 / 折线 / 饼图任选其1或以上）\n可调用工具：“generate_pie_chart\" | \n\n# 四、 限制提示（Limit）\n\
+            1. 避免使用过于复杂的图表类型，确保可视化结果易于理解\n2. 不要忽略数据质量问题，必须进行必要的数据清洗\n3. 避免在可视化中使用过多颜色或元素，保持简洁明了\n\
+            4. 不要遗漏关键数据的标注和说明\n5.必须进行总结和图表生成，不管数据多少\n\n# 五、 输出格式要求（Example）\n请按照以下格式输出：\n\
+            1. 数据概况总结{{#1792920050979.chart_data#}}（不要输出字段名称，不要分点，一小段话就行）\n2. 展示生成的图表{{#1792920278374.text#}}\n"
+        selected: false
+        title: LLM 4
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1792920082386'
+      position:
+        x: 1440.2868680651684
+        y: 1149.1684913938811
+      positionAbsolute:
+        x: 1440.2868680651684
+        y: 1149.1684913938811
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        answer: '{{#1792920082386.text#}}'
+        selected: false
+        title: 直接回复 9
+        type: answer
+        variables: []
+      height: 102
+      id: '1792920085606'
+      position:
+        x: 1815.0270941571985
+        y: 1130.69538165695
+      positionAbsolute:
+        x: 1815.0270941571985
+        y: 1130.69538165695
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data of area chart, such as, [{ "time":"2018", "value":99.9 }].
+            ja_JP: Data of area chart, such as, [{ "time":"2018", "value":99.9 }].
+            pt_BR: Data of area chart, such as, [{ "time":"2018", "value":99.9 }].
+            zh_Hans: 面积图数据， 例如，[{ "time":"2018", "value":99.9 }]。
+          input_schema: null
+          label:
+            en_US: data of area chart
+            ja_JP: data of area chart
+            pt_BR: data of area chart
+            zh_Hans: 面积图数据
+          llm_description: Data of area chart, such as, [{ "time":"2018", "value":99.9
+            }].
+          max: null
+          min: null
+          multiple: false
+          name: data
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether stacking is enabled. When enabled, area charts require
+              a 'group' field in the data.
+            ja_JP: Whether stacking is enabled. When enabled, area charts require
+              a 'group' field in the data.
+            pt_BR: Whether stacking is enabled. When enabled, area charts require
+              a 'group' field in the data..
+            zh_Hans: 当 stack 为 true, Data 数据中 必须有 'group' 字段.
+          input_schema: null
+          label:
+            en_US: stack
+            ja_JP: stack
+            pt_BR: stack
+            zh_Hans: 多个面积图是否开启
+          llm_description: Whether stacking is enabled. When enabled, area charts
+            require a 'group' field in the data.
+          max: null
+          min: null
+          multiple: false
+          name: stack
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 600
+          form: form
+          human_description:
+            en_US: Set the width of chart, default is 600.
+            ja_JP: Set the width of chart, default is 600.
+            pt_BR: Set the width of chart, default is 600.
+            zh_Hans: 请设置图表宽度，默认值为 600.
+          input_schema: null
+          label:
+            en_US: width
+            ja_JP: width
+            pt_BR: width
+            zh_Hans: 宽
+          llm_description: Set the width of chart, default is 600.
+          max: null
+          min: null
+          multiple: false
+          name: width
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: 400
+          form: form
+          human_description:
+            en_US: Set the height of chart, default is 400.
+            ja_JP: Set the height of chart, default is 400.
+            pt_BR: Set the height of chart, default is 400.
+            zh_Hans: 请设置图表高度，默认值为 400.
+          input_schema: null
+          label:
+            en_US: height
+            ja_JP: height
+            pt_BR: height
+            zh_Hans: 高
+          llm_description: Set the height of chart, default is 400.
+          max: null
+          min: null
+          multiple: false
+          name: height
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Set the title of chart.
+            ja_JP: Set the title of chart.
+            pt_BR: Set the title of chart.
+            zh_Hans: 请设置图表名称。
+          input_schema: null
+          label:
+            en_US: title
+            ja_JP: title
+            pt_BR: title
+            zh_Hans: 图表名称
+          llm_description: Set the title of chart.
+          max: null
+          min: null
+          multiple: false
+          name: title
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Set the axisXTitle of chart.
+            ja_JP: Set the axisXTitle of chart.
+            pt_BR: Set the axisXTitle of chart.
+            zh_Hans: 请设置图表 X 轴名称。
+          input_schema: null
+          label:
+            en_US: axisXTitle
+            ja_JP: axisXTitle
+            pt_BR: axisXTitle
+            zh_Hans: 图表 X 轴名称
+          llm_description: Set the axisXTitle of chart.
+          max: null
+          min: null
+          multiple: false
+          name: axisXTitle
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Set the axisYTitle of chart.
+            ja_JP: Set the axisYTitle of chart.
+            pt_BR: Set the axisYTitle of chart.
+            zh_Hans: 请填写图表 Y 轴名称。
+          input_schema: null
+          label:
+            en_US: axisYTitle
+            ja_JP: axisYTitle
+            pt_BR: axisYTitle
+            zh_Hans: 图表 Y 轴名称
+          llm_description: Set the axisYTitle of chart.
+          max: null
+          min: null
+          multiple: false
+          name: axisYTitle
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: default
+          form: form
+          human_description:
+            en_US: Set the theme of chart.
+            ja_JP: Set the theme of chart.
+            pt_BR: Set the theme of chart.
+            zh_Hans: 请设置图表主题。
+          input_schema: null
+          label:
+            en_US: theme
+            ja_JP: theme
+            pt_BR: theme
+            zh_Hans: 图表主题
+          llm_description: Set the theme of chart.
+          max: null
+          min: null
+          multiple: false
+          name: theme
+          options:
+          - icon: ''
+            label:
+              en_US: default
+              ja_JP: default
+              pt_BR: default
+              zh_Hans: 默认主题
+            value: default
+          - icon: ''
+            label:
+              en_US: academy
+              ja_JP: academy
+              pt_BR: academy
+              zh_Hans: 学术主题
+            value: academy
+          - icon: ''
+            label:
+              en_US: dark
+              ja_JP: dark
+              pt_BR: dark
+              zh_Hans: 黑暗主题
+            value: dark
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Set the style of chart, such as, { "backgroundColor":"transparent",
+              "palette":["#8459fc","#ff89bd","#1677ff","#00c2ff","#ff9a00","#f2cc2e","#7587dc","#bd80fa"],
+              "texture":"rough", lineWidth:2 }.
+            ja_JP: Set the style of chart, such as, { "backgroundColor":"transparent",
+              "palette":["#8459fc","#ff89bd","#1677ff","#00c2ff","#ff9a00","#f2cc2e","#7587dc","#bd80fa"],
+              "texture":"rough", lineWidth:2 }.
+            pt_BR: Set the style of chart, such as, { "backgroundColor":"transparent",
+              "palette":["#8459fc","#ff89bd","#1677ff","#00c2ff","#ff9a00","#f2cc2e","#7587dc","#bd80fa"],
+              "texture":"rough", lineWidth:2 }.
+            zh_Hans: 请设置图表样式，例如，{ "backgroundColor":"transparent", "palette":["#8459fc","#ff89bd","#1677ff","#00c2ff","#ff9a00","#f2cc2e","#7587dc","#bd80fa"],
+              "texture":"rough", lineWidth:2 }。
+          input_schema: null
+          label:
+            en_US: style
+            ja_JP: style
+            pt_BR: style
+            zh_Hans: 图表样式
+          llm_description: Set the style of chart, such as, { "backgroundColor":"transparent",
+            "palette":["#8459fc","#ff89bd","#1677ff","#00c2ff","#ff9a00","#f2cc2e","#7587dc","#bd80fa"],
+            "texture":"rough", lineWidth:2 }.
+          max: null
+          min: null
+          multiple: false
+          name: style
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          axisXTitle: ''
+          axisYTitle: ''
+          data: ''
+          height: ''
+          stack: ''
+          style: ''
+          theme: ''
+          title: ''
+          width: ''
+        plugin_id: antv/visualization
+        plugin_unique_identifier: antv/visualization:0.2.0@798a255e7bf02e93b8a5717be235b833482be58daab1c64c79c954281da14b9c
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=8a942cd8-e683-4c2f-9c94-df9af4978d41&filename=0845c09f38c8d07ea4250bb588697f25bfe7d35fc590ceb8aa50425a715bb062.svg
+        provider_id: antv/visualization/visualization
+        provider_name: antv/visualization/visualization
+        provider_show_name: AntV 可视化图表
+        provider_type: builtin
+        selected: false
+        title: 生成面积图
+        tool_configurations:
+          height:
+            type: constant
+            value: 400
+          style:
+            type: mixed
+            value: null
+          theme:
+            type: constant
+            value: default
+          width:
+            type: constant
+            value: 600
+        tool_description: 生成一个面积图来表示在连续自变量下的数据趋势，并观察整体数据趋势，例如，位移 = 速度（平均速度或瞬时速度）×
+          时间:s = v × t。如果 x 轴是时间（t），y 轴是每个时刻的速度（v），则面积图可以让您观察速度随时间的变化趋势，并通过面积的大小推断出所行驶的距离。
+        tool_label: 生成面积图
+        tool_name: generate_area_chart
+        tool_node_version: '2'
+        tool_parameters:
+          axisXTitle:
+            type: mixed
+            value: null
+          axisYTitle:
+            type: mixed
+            value: null
+          data:
+            type: mixed
+            value: '{{#1792920050979.chart_data#}}'
+          stack:
+            type: constant
+            value: false
+          title:
+            type: mixed
+            value: null
+        type: tool
+      height: 166
+      id: '1792920278374'
+      position:
+        x: 1091.936798740182
+        y: 1125.4173503035415
+      positionAbsolute:
+        x: 1091.936798740182
+        y: 1125.4173503035415
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    viewport:
+      x: 79.8828747789488
+      y: 221.7211587872672
+      zoom: 0.378929162424978
+  rag_pipeline_variables: []
